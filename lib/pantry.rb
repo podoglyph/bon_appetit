@@ -13,7 +13,12 @@ class Pantry
   end
 
   def restock(item, num)
-    current_num = @stock[item]
-    @stock[item] = num
+    if stock_check(item) == 0
+      @stock[item] = num
+    else
+      current_num = @stock[item]
+      total_addition = current_num + num
+      @stock[item] = total_addition
+    end
   end
 end
