@@ -24,5 +24,17 @@ class Pantry
     end
   end
 
+  def add_to_shopping_list(recipe)
+    recipe.ingredients.each_pair do |k,v|
+      @shopping_list[k] = v
+    end
+  end
+
+  def print_shopping_list
+    shopping_list.each_pair do |k, v|
+      p "#{k.to_s} #{v.to_s}"
+    end
+  end
+
 
 end
