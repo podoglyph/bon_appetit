@@ -1,7 +1,9 @@
 require './lib/pantry'
+require './lib/recipe'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
+
 class PantryTest < Minitest::Test
 
   def test_it_exists
@@ -36,6 +38,22 @@ class PantryTest < Minitest::Test
 
     pantry.restock("Cheese", 20)
     assert_equal 30, pantry.stock_check("Cheese")
+  end
+
+  def test_pantry_can_get_recipe
+    pantry = Pantry.new
+    r = Recipe.new("Cheese Pizza")
+    assert_equal ({}), r.ingredients
+
+    r.add_ingredient("Cheese", 20)
+    r.add_ingredient("Flour", 20)
+    assert_equal ({"Cheese"=>20, "Flour"=>20}), r.ingredients
+
+    assert_equal ({}), pantry.shopping_list
+    
+    #pantry.add_to_shopping_list(r)
+
+
   end
 
 

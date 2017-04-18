@@ -1,9 +1,11 @@
 require 'pry'
+
 class Pantry
-  attr_reader :stock
+  attr_reader :stock, :shopping_list
 
   def initialize
     @stock = {}
+    @shopping_list = {}
   end
 
   def stock_check(item)
@@ -21,4 +23,6 @@ class Pantry
       @stock[item] = total_addition
     end
   end
+
+
 end
