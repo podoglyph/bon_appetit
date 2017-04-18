@@ -39,11 +39,11 @@ class Pantry
 
   def add_to_cookbook(recipe)
     recipe.ingredients.each_pair do |k,v|
-      @cookbook[k] = v
+      @cookbook[recipe.name] = {k => v}
     end
   end
 
+  def what_can_i_make
 
-
-
+  end
 end

@@ -107,7 +107,7 @@ class PantryTest < Minitest::Test
     pantry.add_to_cookbook(r2)
     pantry.add_to_cookbook(r3)
 
-    assert_equal ({"Cheese"=>20, "Flour"=>20, "Brine"=>10, "Cucumbers"=>30, "Raw nuts"=>10, "Salt"=>10}), pantry.cookbook
+    assert_equal ({"Cheese Pizza"=>{"Flour"=>20}, "Pickles"=>{"Cucumbers"=>30}, "Peanuts"=>{"Salt"=>10}}), pantry.cookbook
 
     pantry.restock("Cheese", 10)
     pantry.restock("Flour", 20)
@@ -116,7 +116,7 @@ class PantryTest < Minitest::Test
     pantry.restock("Raw nuts", 20)
     pantry.restock("Salt", 20)
 
-    assert_equal ({"Cheese"=>10, "Flour"=>20, "Brine"=>40, "Cucumbers"=>40, "Raw nuts"=>20, "Salt"=>20}), pantry.stock
+    assert_equal ({"Cheese Pizza"=>{"Flour"=>20}, "Pickles"=>{"Cucumbers"=>30}, "Peanuts"=>{"Salt"=>10}}), pantry.stock
   end
 
   def test_what_can_i_make
